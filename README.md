@@ -1,3 +1,32 @@
+# Frontend Mentor - Launch countdown timer
+
+
+![Design preview for the Launch countdown timer coding challenge](./design/desktop-preview.jpg)
+
+## Welcome! 👋
+
+This is a [Frontend Mentor](https://www.frontendmentor.io) challenge to help improve coding skills by building realistic projects.
+
+This project was made using Next.
+
+## The challenge
+
+The challenge is to build out this countdown timer and get it looking as close to the [design](./.github/images) as possible.
+
+The users should be able to:
+
+- See hover states for all interactive elements on the page
+- See a live countdown timer that ticks down every second (start the count at 14 days)
+- **Bonus**: When a number changes, make the card flip from the middle
+
+## Where to find everything
+
+The task is to build out the project to the designs inside the `.github/images` folder. There`s both a mobile and a desktop version of the design. 
+
+There is also a `style-guide.md` file containing the information given to the project, such as color palette and fonts.
+
+# Development
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

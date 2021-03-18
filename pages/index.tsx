@@ -1,37 +1,48 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
-  BackNumber,
-  Card,
   Container,
   CountdownContainer,
   Footer,
-  FrontNumber,
   NumberContainer,
 } from "../styles/Home";
 
 export default function Home() {
-  const [clicked, setOnClicked] = useState(false);
+  const [play, setPlay] = useState("play");
+  const [backSeconds, setBackSeconds] = useState(1);
+  const [frontSeconds, setFrontSeconds] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setFrontSeconds(backSeconds);
+      setBackSeconds(frontSeconds + 1);
+      setPlay(play == "play" ? "" : "play");
+    }, 1000);
+  }, [play]);
 
   return (
     <Container>
       <Head>
         <title>Countdown Challenge</title>
       </Head>
-      <img src="bg-stars.svg" className="bgStars" alt="" />
-      <img src="pattern-hills.svg" className="patternHills" alt="" />
+      {/* <img src="bg-stars.svg" className="bgStars" alt="" /> */}
+      {/* <img src="pattern-hills.svg" className="patternHills" alt="" /> */}
       <h2>WE'RE LAUCHING SOON</h2>
       <CountdownContainer>
         <NumberContainer>
-          <div className="digit">
-            {/* <Card>
-              <span className="backNumber">07</span>
-              <span className="frontNumber">08</span>
-            </Card> */}
+          <div className={`flip-card ${play}`}>
+            <div className="flip-display">
+              <div className="flip-display-top">{backSeconds}</div>
+              <div className="flip-display-bottom">{frontSeconds}</div>
+            </div>
+            <div className="flipper">
+              <div className="flipper-top">{frontSeconds}</div>
+              <div className="flipper-bottom">{backSeconds}</div>
+            </div>
           </div>
         </NumberContainer>
-        <div>
+        {/* <div>
           <div>
             <span>23</span>
           </div>
@@ -48,7 +59,7 @@ export default function Home() {
             <span>41</span>
           </div>
           <h3>Seconds</h3>
-        </div>
+        </div> */}
       </CountdownContainer>
 
       <Footer>

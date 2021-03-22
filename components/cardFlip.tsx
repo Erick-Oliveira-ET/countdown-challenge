@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NumberContainer } from "../styles/Home";
 
-const CardFlip = ({ number }) => {
+const CardFlip = ({ number, type }) => {
   const [flip, setFlip] = useState(false);
 
   const [flipDisplayTop, setFlipDisplayTop] = useState(number);
@@ -9,19 +9,47 @@ const CardFlip = ({ number }) => {
   const [flipperTop, setFlipperTop] = useState(number + 1);
   const [flipperBottom, setFlipperBottom] = useState(number + 1);
 
-  useEffect(() => {
-    setFlipDisplayBottom(number);
-    setFlipperTop(number);
+  let maxType = {
+    hours: 24,
+    minutes: 60,
+    seconds: 60,
+  };
 
-    setFlipDisplayTop(number - 1);
-    setFlipperBottom(number - 1);
+  let maxSubstitutionType = {
+    hours: 23,
+    minutes: 59,
+    seconds: 59,
+  };
+
+  useEffect(() => {
+    setFlipDisplayBottom(
+      number === maxType[type] ? maxSubstitutionType[type] : number
+    );
+    setFlipperTop(
+      number === maxType[type] ? maxSubstitutionType[type] : number
+    );
+
+    setFlipDisplayTop(
+      number - 1 === -1 ? maxSubstitutionType[type] : number - 1
+    );
+    setFlipperBottom(
+      number - 1 === -1 ? maxSubstitutionType[type] : number - 1
+    );
 
     setFlip(true);
 
+    if (type === "seconds") {
+      setTimeout(() => {
+        setFlipDisplayBottom(
+          number - 1 === -1 ? maxSubstitutionType[type] : number - 1
+        );
+        setFlipperTop(
+          number - 1 === -1 ? maxSubstitutionType[type] : number - 1
+        );
+      }, 700);
+    }
     setTimeout(() => {
       setFlip(false);
-      setFlipDisplayBottom(number - 1);
-      setFlipperTop(number - 1);
     }, 800);
   }, [number]);
 

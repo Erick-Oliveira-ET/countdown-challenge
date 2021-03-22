@@ -2,27 +2,36 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import CardFlip from "../components/cardFlip";
 
-import {
-  Container,
-  CountdownContainer,
-  Footer,
-  NumberContainer,
-} from "../styles/Home";
+import { Container, CountdownContainer, Footer } from "../styles/Home";
 
 export default function Home() {
   const totalTime = 14 * 24 * 60 * 60 * 1000;
   const [time, setTime] = useState(totalTime);
   const [finish, setFinish] = useState<number>(Date.now() + totalTime);
+  let timeLeft = finish - Date.now();
 
-  const [seconds, setSeconds] = useState<number>();
-  const [minutes, setMinutes] = useState<number>();
-  const [hours, setHours] = useState<number>();
-  const [days, setDays] = useState<number>();
+  const [seconds, setSeconds] = useState<number>(
+    Math.floor(
+      (((timeLeft % (24 * 60 * 60 * 1000)) % (60 * 60 * 1000)) % (60 * 1000)) /
+        1000
+    )
+  );
+  const [minutes, setMinutes] = useState<number>(
+    Math.floor(
+      ((timeLeft % (24 * 60 * 60 * 1000)) % (60 * 60 * 1000)) / (60 * 1000)
+    )
+  );
+  const [hours, setHours] = useState<number>(
+    Math.floor((timeLeft % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000))
+  );
+  const [days, setDays] = useState<number>(
+    Math.floor(timeLeft / (24 * 60 * 60 * 1000))
+  );
 
   useEffect(() => {
-    if (time > 0) {
+    if (finish - Date.now() >= 0) {
       setTimeout(() => {
-        let timeLeft = finish - Date.now();
+        timeLeft = finish - Date.now();
         let setdays = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
         let sethours = Math.floor(
           (timeLeft % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
@@ -41,8 +50,8 @@ export default function Home() {
         setMinutes(setminutes);
         setSeconds(setseconds);
       }, 1000);
-    } else if (time === 0) {
-      setTime(totalTime);
+    } else if (finish - Date.now() <= 0) {
+      setFinish(Date.now() + totalTime);
     }
   }, [seconds]);
 
@@ -55,10 +64,10 @@ export default function Home() {
       {/* <img src="pattern-hills.svg" className="patternHills" alt="" /> */}
       <h2>WE'RE LAUCHING SOON</h2>
       <CountdownContainer>
-        <CardFlip number={days} />
-        <CardFlip number={hours} />
-        <CardFlip number={minutes} />
-        <CardFlip number={seconds} />
+        <CardFlip number={days} type="days" />
+        <CardFlip number={hours} type="hours" />
+        <CardFlip number={minutes} type="minutes" />
+        <CardFlip number={seconds} type="seconds" />
 
         {/* <div>
           <div>

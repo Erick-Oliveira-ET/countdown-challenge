@@ -29,7 +29,7 @@ a {
   --flip-color: #171717;
   --flip-text-color: #efefef;
   --flip-border-radius: calc(var(--flip-height) * 0.05);
-  --animation-time: 1s;
+  --animation-time: 800ms;
   --animation-ease: linear;
   --perspective: 200px;
 }

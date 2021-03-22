@@ -1,5 +1,6 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
+import CardFlip from "../components/cardFlip";
 
 import {
   Container,
@@ -9,17 +10,41 @@ import {
 } from "../styles/Home";
 
 export default function Home() {
-  const [play, setPlay] = useState("play");
-  const [backSeconds, setBackSeconds] = useState(1);
-  const [frontSeconds, setFrontSeconds] = useState(0);
+  const totalTime = 14 * 24 * 60 * 60 * 1000;
+  const [time, setTime] = useState(totalTime);
+  const [finish, setFinish] = useState<number>(Date.now() + totalTime);
+
+  const [seconds, setSeconds] = useState<number>();
+  const [minutes, setMinutes] = useState<number>();
+  const [hours, setHours] = useState<number>();
+  const [days, setDays] = useState<number>();
 
   useEffect(() => {
-    setTimeout(() => {
-      setFrontSeconds(backSeconds);
-      setBackSeconds(frontSeconds + 1);
-      setPlay(play == "play" ? "" : "play");
-    }, 1000);
-  }, [play]);
+    if (time > 0) {
+      setTimeout(() => {
+        let timeLeft = finish - Date.now();
+        let setdays = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
+        let sethours = Math.floor(
+          (timeLeft % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000)
+        );
+        let setminutes = Math.floor(
+          ((timeLeft % (24 * 60 * 60 * 1000)) % (60 * 60 * 1000)) / (60 * 1000)
+        );
+        let setseconds = Math.floor(
+          (((timeLeft % (24 * 60 * 60 * 1000)) % (60 * 60 * 1000)) %
+            (60 * 1000)) /
+            1000
+        );
+
+        setDays(setdays);
+        setHours(sethours);
+        setMinutes(setminutes);
+        setSeconds(setseconds);
+      }, 1000);
+    } else if (time === 0) {
+      setTime(totalTime);
+    }
+  }, [seconds]);
 
   return (
     <Container>
@@ -30,18 +55,11 @@ export default function Home() {
       {/* <img src="pattern-hills.svg" className="patternHills" alt="" /> */}
       <h2>WE'RE LAUCHING SOON</h2>
       <CountdownContainer>
-        <NumberContainer>
-          <div className={`flip-card ${play}`}>
-            <div className="flip-display">
-              <div className="flip-display-top">{backSeconds}</div>
-              <div className="flip-display-bottom">{frontSeconds}</div>
-            </div>
-            <div className="flipper">
-              <div className="flipper-top">{frontSeconds}</div>
-              <div className="flipper-bottom">{backSeconds}</div>
-            </div>
-          </div>
-        </NumberContainer>
+        <CardFlip number={days} />
+        <CardFlip number={hours} />
+        <CardFlip number={minutes} />
+        <CardFlip number={seconds} />
+
         {/* <div>
           <div>
             <span>23</span>

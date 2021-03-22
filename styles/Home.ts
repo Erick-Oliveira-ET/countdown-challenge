@@ -135,12 +135,14 @@ const NumberContainer = styled.div`
   .flip-display-top {
     --i: 2;
 
+    background-color: green;
     border-top-left-radius: var(--flip-border-radius);
     border-top-right-radius: var(--flip-border-radius);
   }
 
   .flip-display-bottom {
     --i: -2;
+    background-color: blue;
 
     border-bottom-left-radius: var(--flip-border-radius);
     border-bottom-right-radius: var(--flip-border-radius);
@@ -180,6 +182,7 @@ const NumberContainer = styled.div`
 
     transform-origin: bottom;
     top: 0;
+    background-color: red;
 
     border-top-left-radius: var(--flip-border-radius);
     border-top-right-radius: var(--flip-border-radius);
@@ -188,6 +191,7 @@ const NumberContainer = styled.div`
   .flipper-bottom {
     --i: -2;
 
+    background-color: yellow;
     transform: rotateX(90deg);
 
     transform-origin: top;
@@ -199,12 +203,12 @@ const NumberContainer = styled.div`
 
   .flip-card.play .flipper-top {
     animation: ${flipperTopAnimation} var(--animation-ease)
-      var(--animation-time) infinite;
+      var(--animation-time) 1;
   }
 
   .flip-card.play .flipper-bottom {
     animation: ${flipperBottomAnimation} var(--animation-ease)
-      var(--animation-time) infinite;
+      var(--animation-time) 1;
   }
 `;
 

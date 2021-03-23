@@ -17,19 +17,18 @@ a {
   --Grayish-blue: hsl(237, 18%, 59%);
   --Soft-red: hsl(345, 95%, 68%);
   --White: hsl(0, 0%, 100%);
-  --Dark-desaturated-blue: hsl(236, 21%, 26%);
+  --Dark-desaturated-blue: #343650;
   --Very-dark-blue: hsl(235, 16%, 14%);
 }
 
 :root {
-  --flip-height: 150px;
-  --flip-width: calc(var(--flip-height) * 0.6);
+  --flip-height: 120px;
+  --flip-width: calc(var(--flip-height) * 1);
   --line-height: calc(var(--flip-height) * 0.5);
   --flip-container-color: #171717;
   --flip-color: #171717;
-  --flip-text-color: #efefef;
   --flip-border-radius: calc(var(--flip-height) * 0.05);
-  --animation-time: 800ms;
+  --animation-time: 1000ms;
   --animation-ease: linear;
   --perspective: 200px;
 }

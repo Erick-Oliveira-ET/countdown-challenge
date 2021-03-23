@@ -44,7 +44,7 @@ const Container = styled.div`
 
 const CountdownContainer = styled.div`
   z-index: 0;
-  width: 780px;
+  width: 680px;
   height: 100%;
   flex: 1;
   display: flex;
@@ -110,6 +110,7 @@ const NumberContainer = styled.div`
     font-weight: 700;
     position: relative;
     margin: 0 0.2rem;
+    box-shadow: 0px 16px 4px -10px rgba(0, 0, 0, 0.29);
   }
 
   .flip-display {
@@ -128,8 +129,7 @@ const NumberContainer = styled.div`
     overflow: hidden;
     width: 100%;
     height: calc(var(--flip-height) * 0.5);
-    background-color: var(--flip-container-color);
-    color: var(--flip-text-color);
+    color: var(--Soft-red);
     line-height: calc(var(--line-height) * var(--i));
   }
 
@@ -171,8 +171,7 @@ const NumberContainer = styled.div`
     height: calc(var(--flip-height) * 0.5);
     line-height: calc(var(--line-height) * var(--i));
     overflow: hidden;
-    background-color: var(--flip-color);
-    color: var(--flip-text-color);
+    color: var(--Soft-red);
   }
 
   .flipper-top {
@@ -206,6 +205,25 @@ const NumberContainer = styled.div`
   .flip-card.play .flipper-bottom {
     animation: ${flipperBottomAnimation} var(--animation-ease)
       var(--animation-time) 1;
+  }
+
+  .flipper-top,
+  .flip-display-top {
+    background-color: var(--Dark-desaturated-blue);
+    filter: brightness(0.8);
+  }
+  .flipper-bottom,
+  .flip-display-bottom {
+    background-color: var(--Dark-desaturated-blue);
+  }
+
+  h3 {
+    padding-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 0.5rem;
+    color: var(--Grayish-blue);
   }
 `;
 

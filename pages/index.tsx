@@ -60,33 +60,14 @@ export default function Home() {
       <Head>
         <title>Countdown Challenge</title>
       </Head>
-      {/* <img src="bg-stars.svg" className="bgStars" alt="" /> */}
-      {/* <img src="pattern-hills.svg" className="patternHills" alt="" /> */}
+      <img src="bg-stars.svg" className="bgStars" alt="" />
+      <img src="pattern-hills.svg" className="patternHills" alt="" />
       <h2>WE'RE LAUCHING SOON</h2>
       <CountdownContainer>
         <CardFlip number={days} type="days" />
         <CardFlip number={hours} type="hours" />
         <CardFlip number={minutes} type="minutes" />
         <CardFlip number={seconds} type="seconds" />
-
-        {/* <div>
-          <div>
-            <span>23</span>
-          </div>
-          <h3>Hours</h3>
-        </div>
-        <div>
-          <div>
-            <span>55</span>
-          </div>
-          <h3>Minutes</h3>
-        </div>
-        <div>
-          <div>
-            <span>41</span>
-          </div>
-          <h3>Seconds</h3>
-        </div> */}
       </CountdownContainer>
 
       <Footer>

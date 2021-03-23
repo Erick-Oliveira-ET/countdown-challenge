@@ -2,55 +2,35 @@ import React, { useEffect, useState } from "react";
 import { NumberContainer } from "../styles/Home";
 
 const CardFlip = ({ number, type }) => {
-  const [flip, setFlip] = useState(false);
-
-  const [flipDisplayTop, setFlipDisplayTop] = useState(number);
-  const [flipDisplayBottom, setFlipDisplayBottom] = useState(number);
-  const [flipperTop, setFlipperTop] = useState(number + 1);
-  const [flipperBottom, setFlipperBottom] = useState(number + 1);
-
-  let maxType = {
-    hours: 24,
-    minutes: 60,
-    seconds: 60,
-  };
-
   let maxSubstitutionType = {
     hours: 23,
     minutes: 59,
     seconds: 59,
   };
+  const [flip, setFlip] = useState(false);
+
+  const [flipDisplayBottom, setFlipDisplayBottom] = useState(number);
+
+  const [flipperTop, setFlipperTop] = useState(number);
+  const [flipDisplayTop, setFlipDisplayTop] = useState(
+    number - 1 === -1 ? maxSubstitutionType[type] : number
+  );
+  const [flipperBottom, setFlipperBottom] = useState(
+    number - 1 === -1 ? maxSubstitutionType[type] : number
+  );
 
   useEffect(() => {
-    setFlipDisplayBottom(
-      number === maxType[type] ? maxSubstitutionType[type] : number
-    );
-    setFlipperTop(
-      number === maxType[type] ? maxSubstitutionType[type] : number
-    );
-
-    setFlipDisplayTop(
-      number - 1 === -1 ? maxSubstitutionType[type] : number - 1
-    );
-    setFlipperBottom(
-      number - 1 === -1 ? maxSubstitutionType[type] : number - 1
-    );
-
     setFlip(true);
 
-    if (type === "seconds") {
-      setTimeout(() => {
-        setFlipDisplayBottom(
-          number - 1 === -1 ? maxSubstitutionType[type] : number - 1
-        );
-        setFlipperTop(
-          number - 1 === -1 ? maxSubstitutionType[type] : number - 1
-        );
-      }, 700);
-    }
+    setFlipDisplayTop(number);
+    setFlipperBottom(number);
+
     setTimeout(() => {
+      setFlipDisplayBottom(number);
+      setFlipperTop(number);
+
       setFlip(false);
-    }, 800);
+    }, 900);
   }, [number]);
 
   return (
@@ -74,6 +54,7 @@ const CardFlip = ({ number, type }) => {
           }}
         ></div>
       </div>
+      <h3>{type.toUpperCase()}</h3>
     </NumberContainer>
   );
 };

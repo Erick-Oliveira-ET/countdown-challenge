@@ -22,7 +22,8 @@ a {
 }
 
 :root {
-  --flip-height: 120px;
+  --flip-height: 8.5rem;
+
   --flip-width: calc(var(--flip-height) * 1);
   --line-height: calc(var(--flip-height) * 0.5);
   --flip-container-color: #171717;
@@ -31,4 +32,10 @@ a {
   --animation-time: 1000ms;
   --animation-ease: linear;
   --perspective: 200px;
+}
+
+@media (max-width: 700px) {
+  :root {
+    font-size: 10px;
+  }
 }

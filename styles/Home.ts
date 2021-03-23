@@ -18,7 +18,7 @@ const Container = styled.div`
     padding: 40px 0 0 0;
     color: var(--White);
     letter-spacing: 0.34em;
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: 700;
   }
 
@@ -44,7 +44,8 @@ const Container = styled.div`
 
 const CountdownContainer = styled.div`
   z-index: 0;
-  width: 680px;
+  width: 100%;
+  max-width: 720px;
   height: 100%;
   flex: 1;
   display: flex;

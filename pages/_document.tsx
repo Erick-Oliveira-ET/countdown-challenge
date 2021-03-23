@@ -29,7 +29,6 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap"
             rel="stylesheet"
           />
-          {this.props.styleTags}
         </Head>
         <body>
           <Main />

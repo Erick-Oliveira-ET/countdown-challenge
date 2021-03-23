@@ -2,10 +2,11 @@ import styled, { keyframes } from "styled-components";
 
 const Container = styled.div`
   z-index: 1;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
   min-width: 100vw;
 
-  padding: 0 0.5rem;
+  padding: 0 0;
 
   background-color: var(--Very-dark-blue);
 
@@ -31,15 +32,6 @@ const Container = styled.div`
     width: 100vw;
     height: 100vh;
   }
-
-  img.patternHills {
-    position: absolute;
-    z-index: 0;
-    left: 0;
-    bottom: 0;
-
-    width: 100vw;
-  }
 `;
 
 const CountdownContainer = styled.div`
@@ -55,12 +47,16 @@ const CountdownContainer = styled.div`
 `;
 
 const Footer = styled.footer`
+  position: relative;
   z-index: 1;
   width: 100%;
   height: 100px;
+  margin: 0 auto;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   img {
     margin: 0 0.5rem;
@@ -71,9 +67,23 @@ const Footer = styled.footer`
   }
 
   a {
+    z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  img.patternHills {
+    z-index: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100vw;
   }
 `;
 

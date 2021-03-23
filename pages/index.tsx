@@ -61,7 +61,6 @@ export default function Home() {
         <title>Countdown Challenge</title>
       </Head>
       <img src="bg-stars.svg" className="bgStars" alt="" />
-      <img src="pattern-hills.svg" className="patternHills" alt="" />
       <h2>WE'RE LAUCHING SOON</h2>
       <CountdownContainer>
         <CardFlip number={days} type="days" />
@@ -71,6 +70,7 @@ export default function Home() {
       </CountdownContainer>
 
       <Footer>
+        <img src="pattern-hills.svg" className="patternHills" alt="" />
         <a href="https://www.facebook.com/" target="_blank">
           <img src="icon-facebook.svg" alt="" />
         </a>

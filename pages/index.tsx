@@ -74,10 +74,10 @@ export default function Home() {
         <a href="https://www.facebook.com/" target="_blank">
           <img src="icon-facebook.svg" alt="" />
         </a>
-        <a href="https://www.instagram.com/" target="_blank">
+        <a href="https://www.pinterest.com/" target="_blank">
           <img src="icon-pinterest.svg" alt="" />
         </a>
-        <a href="https://pinterest.com/" target="_blank">
+        <a href="https://www.instagram.com/" target="_blank">
           <img src="icon-instagram.svg" alt="" />
         </a>
       </Footer>

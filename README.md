@@ -55,6 +55,8 @@ This is my second project using Next. The first was during an event called [Next
 
 In this project was the first time I used Next on my own, even though I have a lot of experience with React. I didn't have any trouble since I learned pretty well from the event but I have to say that programming using Next is beautiful: the hotreload is smooth, doesn't reload the entire page and is really fast what is great because the cold start of a programmer is the main reason for procrastination.
 
+A very important thing I learned in this project is to never let fill on the svg tag, it makes impossible to work with coloring the icons.
+
 I also learned that sometimes I have to write my thoghts down to not overengineer and do it in the wrong way and lose time. I say that because of a bit of code in [cardFlip.tsx](./components/cardFlip.tsx) that I complicated too much and in the end was really simple (maybe there's a more simple way but I don't have this knowledge yet):
 
 ```typescript

@@ -2,6 +2,10 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import CardFlip from "../components/cardFlip";
 
+import FacebookIcon from "../public/icon-facebook.svg";
+import InstagramIcon from "../public/icon-instagram.svg";
+import PinterestIcon from "../public/icon-pinterest.svg";
+
 import { Container, CountdownContainer, Footer } from "../styles/Home";
 
 export default function Home() {
@@ -72,13 +76,13 @@ export default function Home() {
       <Footer>
         <img src="pattern-hills.svg" className="patternHills" alt="" />
         <a href="https://www.facebook.com/" target="_blank">
-          <img src="icon-facebook.svg" alt="" />
+          <FacebookIcon className="icon" />
         </a>
         <a href="https://www.pinterest.com/" target="_blank">
-          <img src="icon-pinterest.svg" alt="" />
+          <PinterestIcon className="icon" />
         </a>
         <a href="https://www.instagram.com/" target="_blank">
-          <img src="icon-instagram.svg" alt="" />
+          <InstagramIcon className="icon" />
         </a>
       </Footer>
     </Container>

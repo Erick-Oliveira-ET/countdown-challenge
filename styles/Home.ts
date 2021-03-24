@@ -61,12 +61,17 @@ const Footer = styled.footer`
   img {
     margin: 0 0.5rem;
   }
+  .icon {
+    fill: var(--Grayish-blue);
+    transition: 0.2s;
+  }
 
-  img:hover {
+  .icon:hover {
     fill: var(--Soft-red);
   }
 
   a {
+    padding: 0 10px;
     z-index: 1;
     display: flex;
     justify-content: center;

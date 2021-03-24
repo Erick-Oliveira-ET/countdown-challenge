@@ -77,6 +77,7 @@ useEffect(() => {
 
 ## Author
 
+- Linkedin - [@erick-t-oliveira](https://www.linkedin.com/in/erick-t-oliveira/)
 - Github - [Erick_Tomaz_ET](https://github.com/Erick-Oliveira-ET)
 - Frontend Mentor - [@Erick-Oliveira-ET](https://www.frontendmentor.io/profile/Erick-Oliveira-ET)
 - Instagram - [@erick_tomaz_kz](https://www.instagram.com/erick_tomaz_kz/)

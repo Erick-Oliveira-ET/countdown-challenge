@@ -37,6 +37,7 @@ Users should be able to:
 ### Links
 
 - Live Site URL: [https://countdown-challenge-one.vercel.app/](https://countdown-challenge-one.vercel.app/)
+- How to setup styled-components with Next: https://dev.to/aprietof/nextjs--styled-components-the-really-simple-guide----101c
 
 ## My process
 
